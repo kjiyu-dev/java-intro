@@ -1,7 +1,7 @@
 package Generic.Class;
 
 public class ClassMain {
-    static void main() {
+    public static void main(String[] args) {
         Pocket<Double, Double, Double> size3dl =
                 new Pocket<>(123.45, 234.56, 345.67);
 
