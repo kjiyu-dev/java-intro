@@ -78,6 +78,18 @@ public class arrayList {
         // 📃 (Array).addAll(array): 이어붙이기
         asList.addAll(addAll);
         System.out.println(asList);
+
+        // 📃 (Array).toArray: Object 배열 반환
+        Object[] intsAry2_Obj = int1.toArray();
+
+        // 📃 (Array).clear: 리스트 비움
+        asList.clear();
+
+        // 제네릭 적용
+        nbr1.add(Integer.valueOf(123));
+        nbr1.add(3.14);
+        // nbr1.add("Hello"); ⏭️ 불가
+
     }
 
 }
