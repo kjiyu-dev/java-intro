@@ -5,7 +5,7 @@ public class Main {
         Swordman r_swordman1 = new Swordman(Side.RED);
         Knight r_knight1 = new Knight(Side.RED);
         Knight r_knight2 = new Knight(Side.RED);
-        MagicKnight r_magicKnight = new MagicKnight(Side.RED);
+        MagicKnight r_magicKnight1 = new MagicKnight(Side.RED);
 
         Knight b_knight1 = new Knight(Side.BLUE);
         MagicKnight b_magicKnight1 = new MagicKnight(Side.BLUE);
@@ -18,5 +18,12 @@ public class Main {
         r_knight2.defaultAttack(b_magicKnight1);
         r_knight2.switchWeapon();
         r_knight2.defaultAttack(b_magicKnight2);
+
+        b_magicKnight1.defaultAttack(r_swordman1);
+        b_magicKnight2.lighteningAttack(new Unit[] {
+                r_knight1,
+                r_knight2,
+                r_magicKnight1
+        });
     }
 }
