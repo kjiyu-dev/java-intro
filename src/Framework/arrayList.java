@@ -1,6 +1,9 @@
 package Framework;
 
-import Generic.WildCard.Example.Knight;
+import Example.MagicKnight;
+import Example.Side;
+import Example.Swordman;
+import Example.Knight;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -10,6 +13,9 @@ import java.util.List;
 
 // 💡 ArrayList: 가장 많이 사용되는 컬렉션 클래스
 // 요소들을 들어오는 순서대로 저장한다
+// 접근이 빠른 장점
+// 요소 추가/제거시 성능부하 발생
+// 따라서 변경이 드물고 빠른 접근이 필요한 곳에 적합
 public class arrayList {
     public static void main(String[] args) {
         // ⏭️ 제네릭을 사용하여 타입 지정
@@ -90,6 +96,18 @@ public class arrayList {
         nbr1.add(3.14);
         // nbr1.add("Hello"); ⏭️ 불가
 
-    }
+        // knights1.add(new Swordman(Side.BLUE)); ⏭️불가, why?
+        // ⏭️ ArrayList에서 Knight로 선언 ArrayList<Knight> knights1
+        // ⏭️ 자식이 부모를 컬렉션에 넣을 순 없음. 반대는 가능
+        // ⏭️ public class Knight(자식) extends Swordman(부모)
+        knights1.add(new Knight(Side.BLUE));
+        knights1.add(new MagicKnight(Side.RED));
+        
+        // 와일드카드 적용
+        ArrayList<? extends Knight> eliteSquad;
 
+        // eliteSquad = new ArrayList<Swordman>(); ⏭️ 불가
+        eliteSquad = new ArrayList<Knight>();
+        eliteSquad = new ArrayList<MagicKnight>();
+    }
 }
