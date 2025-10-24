@@ -81,7 +81,7 @@ public class Main {
         // ⏩ (아래방법) 일반적인 방법으론 꺼낼 수 없다
         // Horse worngHorse = atkrHrsHmap.get(new MagicKnight(Side.BLUE));
 
-        // 📃 getODefault : 키에 해당하는 쌍이 없을 시 지정한 디폴트 "값" 반환
+        // 📃 getDefault : 키에 해당하는 쌍이 없을 시 지정한 디폴트 "값" 반환
         String defName = numNameHmap.getOrDefault(10, "김대타"); // 김대타
         Horse defHorse = atkrHrsHmap.getOrDefault(genji, new Horse(100)); // 있음, genji의 말 return
         
@@ -90,5 +90,16 @@ public class Main {
         numNameHmapClone.remove(100); // [신짱아, 신형만]
         numNameHmapClone.remove(2, "봉미선"); // [신짱아, 신형만]
         numNameHmapClone.remove(3, "신형만"); // [신짱아]
+        
+        // 💡 해시맵: 키의 해시코드/키
+        // 💡 트리맵: 키를 트리 형태로 저장
+        // ⏭️ 정렬 무관 빠른접근시에는 해시맵, 키순정렬 필요시 트리맵
+        TreeMap<Integer, String[]> classKidsTmap = new TreeMap<>();
+        classKidsTmap.put(3, new String[] {"서아", "이준", "아린"});
+        classKidsTmap.put(9, new String[] {"하윤", "서준", "지호"});
+        classKidsTmap.put(1, new String[] {"이서", "하준", "아윤"});
+        classKidsTmap.put(7, new String[] {"지안", "은우", "예준"});
+        classKidsTmap.put(5, new String[] {"서윤", "시우", "하은"});
+        System.out.println(classKidsTmap.toString());
     }
 }
