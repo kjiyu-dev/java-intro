@@ -1,7 +1,11 @@
-package Framework.ComparableAndComparator.Example.ex01;
+package Framework.ComparableAndComparator.Example;
 
+import Example.*;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.TreeSet;
 
 // Comparable & Comparator 둘 다 인터페이스
 // 💡 Comparable: (비교의 대상) 자신과 다른 객체 비교, 숫자클래스&불리언,문자열
@@ -35,5 +39,24 @@ public class Main {
                 return o1.length() - o2.length();
             }
         });
+        
+        //  💡ArrayList도 sort메소드 사용 가느
+        ArrayList<Integer> numsAry = new ArrayList<>(Arrays.asList(nums));
+        numsAry.sort(new IntDescComp()); // [9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+        TreeSet<Unit> unitTreeSet = new TreeSet<>(new UnitSorter());
+        for (Unit u : new Unit[] {
+                new Knight(Side.BLUE),
+                new Knight(Side.BLUE), // 중복
+                new Swordman(Side.RED),
+                new Swordman(Side.RED), // 중복
+                new MagicKnight(Side.BLUE),
+                new Swordman(Side.BLUE),
+                new MagicKnight(Side.RED),
+                new Knight(Side.RED)
+        }) {
+            unitTreeSet.add(u);
+        }
+        System.out.println(unitTreeSet.toString());
     }
 }

@@ -1,4 +1,4 @@
-package Framework.ComparableAndComparator.Example.ex01;
+package Framework.ComparableAndComparator.Example;
 
 import java.util.Comparator;
 
